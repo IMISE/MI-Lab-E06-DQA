@@ -1,0 +1,1 @@
+# GitHub Codespaces configuration for dataquieR
