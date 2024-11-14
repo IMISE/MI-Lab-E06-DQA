@@ -12,12 +12,9 @@ ui <- fluidPage(
         ),
 
         mainPanel(
-            #htmlOutput("report")
-           #plotOutput("report")
            tabsetPanel(
             tabPanel("Tables", tableOutput("data")),
-            tabPanel("Report", uiOutput("report"))
-            #tabPanel("Report", tags$iframe(src = ".report/report.html", width = "100%", height = "600px"))
+            #tabPanel("Report", uiOutput("report"))
             )
         )
     )
