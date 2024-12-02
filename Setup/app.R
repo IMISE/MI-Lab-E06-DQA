@@ -14,7 +14,7 @@ ui <- fluidPage(
         mainPanel(
            tabsetPanel(
             tabPanel("Tables", tableOutput("data")),
-            #tabPanel("Report", uiOutput("report"))
+            tabPanel("Report", uiOutput("report"))
             )
         )
     )
@@ -50,12 +50,10 @@ server <- function(input, output) {
     }
 
     output$report <- renderUI({
-        if (check_report_exists()) {
-            tags$iframe(src = ".report/report.html", width = "100%", height = "600px")
-        } else {
+        if (!check_report_exists()) {
             generate_report()
-            tags$iframe(src = ".report/report.html", width = "100%", height = "600px")
-        }
+        } 
+        tags$iframe(src = ".report/report.html", width = "100%", height = "600px")
     })
 }
 
